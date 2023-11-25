@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #F3F2F7;
+}
+
+
+
+.circular-loading {
+    @apply animate-spin rounded-full border-t-4 border-orangeVariant border-solid border-opacity-50 h-8 w-8;
+}
