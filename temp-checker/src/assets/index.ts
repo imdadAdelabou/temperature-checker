@@ -6,6 +6,17 @@ import activeSeuilEditIcon from './activeSeuilIcon.svg';
 import temperatureIcon from './temperatureIcon.png';
 import humidtyIcon from './humidtyIcon.png';
 import bellIcon from './bellIcon.png';
+import emptyAlerteImage from './emptyAlerteImage.svg';
 
 
-export {tempCheckerLogo, activeHomeIcon, bellIcon,inactiveHomeIcon, inactiveSeuilEditIcon, humidtyIcon,temperatureIcon,activeSeuilEditIcon};
+export {
+    tempCheckerLogo, 
+    activeHomeIcon, 
+    bellIcon,
+    inactiveHomeIcon, 
+    inactiveSeuilEditIcon, 
+    humidtyIcon,
+    temperatureIcon,
+    activeSeuilEditIcon, 
+    emptyAlerteImage
+};

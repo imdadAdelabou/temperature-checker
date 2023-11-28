@@ -5,7 +5,7 @@ function CustomInput(props: InputType) {
     <input
       {...props}
       className={`bg-white w-full h-14 border pl-3 mb-8 rounded-md  ${
-        props.haveError ? "outline-[red]" : ""
+        props.haveAnError ? "outline-[red]" : ""
       }`}
     />
   );

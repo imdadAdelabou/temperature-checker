@@ -1,4 +1,4 @@
-import { Auth, createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { Auth, User, createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import app from "../configs/firebaseConfig";
 
 
@@ -9,13 +9,13 @@ class FirebaseAuthService {
         this.auth = getAuth(app);
     }
 
-    async signUp(email: string, password: string) {
+    async signUp(email: string, password: string): Promise<User | boolean> {
         try {
             const result = await createUserWithEmailAndPassword(this.auth, email, password);
 
             return result.user;
         } catch (error) {
-            return error;
+            return false;
         }
     }
 }

@@ -39,6 +39,7 @@ const LoginView: React.FC = () => {
               type="text"
               name="email"
               id="email"
+              haveerror={false}
             />
             <label htmlFor="password" className="font-semibold">
               {APP_CONTENTS.passwordLabel}
@@ -48,6 +49,7 @@ const LoginView: React.FC = () => {
               type="password"
               name="password"
               id="password"
+              haveerror={false}
             />
             <CustomBtn content={APP_CONTENTS.login} action={() => {}} />
             <InfoUserAuth

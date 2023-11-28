@@ -17,7 +17,20 @@ alerteLabel: 'Alerte',
 newUserRegister: 'Pas de compte?',
 registerYou: 'Inscris-toi?',
 alreadyHaveAnAccount: 'Tu as déja un compte?',
-logYou: 'Connecte-toi'
+logYou: 'Connecte-toi',
+statusKit: 'Status du kit',
+onLabel: 'Allumé',
+tagEmptyAlerteIcon: "Une illustration pour montrer qu'aucun seuil d'alerte n'a été ajouté.",
+noAlerteDefined:  "Aucun seuil d'alerte défini",
+addAnAlerte: "Ajouter un seuil d'alerte",
+beNotifyWhenTheTemp: 'Me notifier sur :',
+whenLabel: "Lorsqu'elle est :",
+aLabel: 'À',
+betweenWord: 'Entre',
+beginLabel: 'Début',
+endLabel: 'Fin',
+andLabel: 'Et',
+addLabel: 'Ajouter'
 };
 
 

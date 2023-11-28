@@ -1,12 +1,13 @@
 
+
 export interface InputType {
     placeholder: string;
-    type: 'text' | 'password' | 'email';
+    type: 'text' | 'password' | 'email' | 'number';
     id: string;
     name: string;
     value: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    haveError?: boolean;
+    haveAnError?: boolean;
 }
 
 export interface BtnType {
@@ -47,7 +48,7 @@ export interface ChartType<T> {
 }
 
 export interface CheckIfUserIsConnectedType {
-    element: JSX.Element;
+    element: React.ReactNode;
 }
 
 export interface InfoUserAuthType {
@@ -65,4 +66,49 @@ export interface SignUpBodyReqType {
     lastName: string;
     email: string;
     password: string;
+}
+
+export interface UserStateType {
+    isPageLoading: boolean;
+    user: UserCustomType | null;
+}
+
+export interface UserCustomType {
+    uid: string
+    email: string;
+    accessToken: string;
+    emailVerified: boolean;
+    firstName?: string;
+    lastName?: string;
+}
+
+export interface RootState {
+    user: UserStateType;
+}
+
+export enum StatusKit {
+    OFF,
+    ON
+}
+
+export interface KitStatusType {
+    label: string;
+    status: StatusKit;
+}
+
+export interface CustomModalType {
+    isOpen: boolean;
+    onRequestClose: () => void;
+    contentLabel?: string;
+    children: JSX.Element;
+}
+
+export interface AddSeuilModalType {
+    isOpen: boolean;
+    onRequestClose: () => void;
+}
+
+export interface TypeSelectType {
+    value: string;
+    label: string;
 }

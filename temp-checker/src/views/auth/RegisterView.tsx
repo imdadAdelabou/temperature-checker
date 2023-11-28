@@ -7,17 +7,18 @@ import {
   itemAnimation,
 } from "../../utils/constant";
 import LogoCmp from "../../components/LogoCmp";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import InfoUserAuth from "../../components/InfoUserAuth";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import ShowErrors from "../../components/ShowErrors";
 import { useState } from "react";
 import { SignUpBodyReqType } from "../../utils/types";
+import FirebaseAuth from "../../services/firebaseAuth";
 
 const RegisterView: React.FC = () => {
-  // const navigate = useNavigate();
-  const [loadingRequest, setLoadingRequest] = useState(true);
+  const navigate = useNavigate();
+  const [loadingRequest, setLoadingRequest] = useState(false);
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -42,7 +43,16 @@ const RegisterView: React.FC = () => {
   };
 
   async function signUp(data: SignUpBodyReqType) {
-
+    setLoadingRequest(() => true);
+    const result = await FirebaseAuth.signUp(data.email, data.password);
+    setLoadingRequest(() => false);
+    if (typeof result != "boolean") {
+      console.log(result);
+      //Store user email, firstName and lastName on MongoDb //TO DO
+      //Redirect to dashboard
+      navigate("/dashboard/index");
+      //Update the User data on the whole app state //TO DO
+    }
   }
 
   return (
@@ -55,9 +65,9 @@ const RegisterView: React.FC = () => {
           </h1>
           <form onSubmit={onSubmit}>
             <div className="mt-6"></div>
-            {Object.keys(formik.errors).map((error) =>
+            {Object.keys(formik.errors).map((error, index) =>
               formik.touched && formik.errors[error] ? (
-                <ShowErrors errors={formik.errors[error]} />
+                <ShowErrors errors={formik.errors[error]} key={index} />
               ) : null
             )}
             <div className="mb-4"></div>
@@ -66,37 +76,37 @@ const RegisterView: React.FC = () => {
                 placeholder={APP_CONTENTS.firstNameLabel}
                 type="text"
                 id="firstName"
-                {...formik.getFieldProps("firstName")}
-                haveError={
+                haveAnError={
                   formik.touched && formik.errors.firstName ? true : false
                 }
+                {...formik.getFieldProps("firstName")}
               />
 
               <CustomInput
                 placeholder={APP_CONTENTS.lastNameLabel}
                 type="text"
                 id="lastName"
-                {...formik.getFieldProps("lastName")}
-                haveError={
+                haveAnError={
                   formik.touched && formik.errors.lastName ? true : false
                 }
+                {...formik.getFieldProps("lastName")}
               />
             </div>
             <CustomInput
               placeholder="Email"
               type="email"
               id="email"
+              haveAnError={formik.touched && formik.errors.email ? true : false}
               {...formik.getFieldProps("email")}
-              haveError={formik.touched && formik.errors.email ? true : false}
             />
             <CustomInput
               placeholder="Mot de passe"
               type="password"
               id="password"
-              {...formik.getFieldProps("password")}
-              haveError={
+              haveAnError={
                 formik.touched && formik.errors.password ? true : false
               }
+              {...formik.getFieldProps("password")}
             />
             <CustomBtn
               content={APP_CONTENTS.onRegister}
