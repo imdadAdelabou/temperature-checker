@@ -47,7 +47,6 @@ const RegisterView: React.FC = () => {
     const result = await FirebaseAuth.signUp(data.email, data.password);
     setLoadingRequest(() => false);
     if (typeof result != "boolean") {
-      console.log(result);
       //Store user email, firstName and lastName on MongoDb //TO DO
       //Redirect to dashboard
       navigate("/dashboard/index");
@@ -58,7 +57,7 @@ const RegisterView: React.FC = () => {
   return (
     <motion.div variants={containerAnimation} initial="hidden" animate="show">
       <LogoCmp />
-      <div className="font-poppins w-[100vw] h-[60vh] flex justify-center items-center">
+      <div className="font-poppins w-[100vw] h-[60vh] flex justify-center items-center p-4 md:p-0">
         <motion.div variants={itemAnimation} className="">
           <h1 className="font-bold text-[24px]">
             {APP_CONTENTS.registerLabel}

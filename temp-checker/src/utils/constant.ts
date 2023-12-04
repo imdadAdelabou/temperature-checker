@@ -30,7 +30,11 @@ betweenWord: 'Entre',
 beginLabel: 'Début',
 endLabel: 'Fin',
 andLabel: 'Et',
-addLabel: 'Ajouter'
+addLabel: 'Ajouter',
+unknowUser: 'Oops, utilisateur inexistant',
+incorrectPassword: 'Mot de passe incorrect',
+serverError: 'Service indisponible. Veuillez réessayer plus tard',
+incorrectCredential: 'Identifiant incorrect',
 };
 
 

@@ -73,6 +73,10 @@ export interface UserStateType {
     user: UserCustomType | null;
 }
 
+export interface AuthStateType {
+    isLoading: boolean;
+}
+
 export interface UserCustomType {
     uid: string
     email: string;
@@ -84,6 +88,7 @@ export interface UserCustomType {
 
 export interface RootState {
     user: UserStateType;
+    auth: AuthStateType;
 }
 
 export enum StatusKit {
@@ -111,4 +116,13 @@ export interface AddSeuilModalType {
 export interface TypeSelectType {
     value: string;
     label: string;
+}
+
+export interface LoginDataBodyType {
+    email: string;
+    password: string;
+}
+
+export interface FirebaseErrorType  extends Error {
+    code: string;
 }
