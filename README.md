@@ -13,5 +13,6 @@ An IOT project that send a value return by a DHT 11 sensor to a frontend app wri
   <li>User can allow the application to send him an notification though his email address</li>
   <li>User need to choose one way to receive an alert by email or notification</li>
   <li>User can see a red LED shine when a fixed limit is reach</li>
+  <li>User can see all the alerts</li>
   <li>User can choose between FR/EN for the website content</li>
 </ul>
