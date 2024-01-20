@@ -15,6 +15,7 @@ import ShowErrors from "../../components/ShowErrors";
 import { useState } from "react";
 import { SignUpBodyReqType } from "../../utils/types";
 import FirebaseAuth from "../../services/firebaseAuth";
+import axiosClient from "../../configs/axiosConfig";
 
 const RegisterView: React.FC = () => {
   const navigate = useNavigate();
@@ -44,11 +45,27 @@ const RegisterView: React.FC = () => {
 
   async function signUp(data: SignUpBodyReqType) {
     setLoadingRequest(() => true);
-    const result = await FirebaseAuth.signUp(data.email, data.password);
+    let result = await FirebaseAuth.signUp(data.email, data.password);
+
+    if (typeof result != "boolean") {
+      try {
+        await axiosClient.post("/auth/register", {
+          id: result.uid,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          role: "USER",
+        });
+      } catch (e) {
+        result = false;
+      }
+    }
+
     setLoadingRequest(() => false);
     if (typeof result != "boolean") {
       //Store user email, firstName and lastName on MongoDb //TO DO
       //Redirect to dashboard
+
       navigate("/dashboard/index");
       //Update the User data on the whole app state //TO DO
     }
@@ -64,11 +81,10 @@ const RegisterView: React.FC = () => {
           </h1>
           <form onSubmit={onSubmit}>
             <div className="mt-6"></div>
-            {Object.keys(formik.errors).map((error, index) =>
-              formik.touched && formik.errors[error] ? (
-                <ShowErrors errors={formik.errors[error]} key={index} />
-              ) : null
-            )}
+            <ShowErrors errors={formik.errors.email} />
+            <ShowErrors errors={formik.errors.firstName} />
+            <ShowErrors errors={formik.errors.lastName} />
+            <ShowErrors errors={formik.errors.password} />
             <div className="mb-4"></div>
             <div className="flex gap-4">
               <CustomInput
