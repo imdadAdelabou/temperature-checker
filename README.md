@@ -19,4 +19,8 @@ An IOT project that send a value return by a DHT 11 sensor to a frontend app wri
 
 ## Models
 - User
-  - email
+  - email (string)
+  - username (string)
+  - isVerified (bool)
+  - lastTemperature (number)
+  - lastHumidity (number)
