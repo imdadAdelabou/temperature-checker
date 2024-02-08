@@ -16,3 +16,7 @@ An IOT project that send a value return by a DHT 11 sensor to a frontend app wri
   <li>User can see all the alerts</li>
   <li>User can choose between FR/EN for the website content</li>
 </ul>
+
+## Models
+- User
+  - email
