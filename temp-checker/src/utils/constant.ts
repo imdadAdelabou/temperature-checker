@@ -3,7 +3,11 @@ import {
   activeSeuilEditIcon,
   inactiveHomeIcon,
   inactiveSeuilEditIcon,
+  grapIcon,
+  bellAlertIcon,
+  alertIcon
 } from "../assets";
+
 import NavBarItem from "./models/navBarItem";
 import { BtnType } from "./types";
 
@@ -50,6 +54,12 @@ const APP_CONTENTS = {
   notDefined: "Pas encore défini",
   addEngineId: "Entrer l'identifiant de votre composant",
   success: "succès",
+  temperature: "Temperature",
+  checker: "Checker",
+  altMockupIphone:
+    "Une image qui montre à quoi ressemble le logiciel temp-checker sur un écran d'iphone",
+  prodcutDescription:
+    "Surveillez en permanence la température et l'humidité de n'importe quelle pièce de votre maison, avec la possibilité de visualiser ces données et de recevoir des notifications à tout moment.",
 };
 
 const navBarItemsContent = [
@@ -65,6 +75,27 @@ const navBarItemsContent = [
     activeSeuilEditIcon,
     inactiveSeuilEditIcon
   ),
+];
+
+const advantagesSection = [
+  {
+    icon: grapIcon,
+    content:
+      "Observez l'évolution de la température et de l'humidité à travers des graphiques.",
+    title: "Historique",
+  },
+  {
+    icon: alertIcon,
+    content:
+      "Incorporez plusieurs seuils d'alerte pour surveiller les variations de température et d'humidité.",
+    title: "Alerte",
+  },
+  {
+    icon: bellAlertIcon,
+    title: "Notifications",
+    content:
+      "Recevez des notifications dès que ces seuils sont atteints.",
+  },
 ];
 
 const loginBtnProps: BtnType = {
@@ -104,4 +135,5 @@ export {
   containerAnimation,
   itemAnimation,
   navBarItemsContent,
+  advantagesSection,
 };

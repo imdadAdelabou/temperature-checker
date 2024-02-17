@@ -8,6 +8,10 @@ import humidtyIcon from "./humidtyIcon.png";
 import bellIcon from "./bellIcon.png";
 import emptyAlerteImage from "./emptyAlerteImage.svg";
 import editIcon from "./editIcon.svg";
+import mockupIphon from "./mockupIphone.png";
+import alertIcon from './icons/alertIcon.svg';
+import bellAlertIcon from './icons/bellIcon.svg';
+import grapIcon from './icons/graphIcon.svg';
 
 export {
   tempCheckerLogo,
@@ -20,4 +24,8 @@ export {
   activeSeuilEditIcon,
   emptyAlerteImage,
   editIcon,
+  mockupIphon,
+  alertIcon,
+  grapIcon,
+  bellAlertIcon
 };

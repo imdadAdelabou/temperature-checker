@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #F3F2F7;
 }
@@ -10,4 +14,8 @@ body {
 
 .circular-loading {
     @apply animate-spin rounded-full border-t-4 border-orangeVariant border-solid border-opacity-50 h-8 w-8;
+}
+
+.card--shadow {
+    box-shadow: 0 26px 49px 0 rgba(146, 165, 184, 0.14);
 }

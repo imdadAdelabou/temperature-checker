@@ -7,6 +7,8 @@ export default {
         primary: "#217BF4",
         orangeVariant: "#ff7f00",
         greenPrimary: "#00B074",
+        greyColorVariant: "#8C8C8C",
+        blackVariant: "#0A093D"
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
