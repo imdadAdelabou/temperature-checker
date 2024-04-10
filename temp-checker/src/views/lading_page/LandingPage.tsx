@@ -1,11 +1,19 @@
 import Header from "../../components/Layouts/Header";
 import { APP_CONTENTS, advantagesSection } from "../../utils/constant";
 import { mockupIphon } from "../../assets";
+import Hamburger from "../../components/hamburger_bar/Hamburger";
+import BackDrop from "../../components/hamburger_bar/Backdrop";
+import React from "react";
 
 const LadingPage: React.FC = () => {
+  const [openClass, setOpenClass] = React.useState("");
   return (
     <div>
-      <Header />
+      <BackDrop openClass={openClass} />
+      <div className="flex justify-between">
+        <Header />
+        <Hamburger getOpenClassFun={(value) => setOpenClass(() => value)} />
+      </div>
       <section className="mt-16 px-3">
         <h1 className="font-bold  leading-10 text-[55px] text-orangeVariant">
           {APP_CONTENTS.temperature}
